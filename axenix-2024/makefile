@@ -13,7 +13,7 @@ run: bin/axenix-2024 database.db
 
 bin/axenix-2024: bin apis sqlboiler
 	go build -o bin/axenix-2024
-	
+
 apis: api.json
 	npx -y @openapitools/openapi-generator-cli generate -i api.json -g go -o apis
 	rm -rf ./apis/test ./apis/go.*
@@ -56,4 +56,4 @@ presentation.html: presentation.md presentation.css
 deploy_admin:
 	scp admin/phpliteadmin.php ./phpliteadmin.config.php scp://${DATA_DEPLOY_PATH}
 run_admin:
-	php -S localhost:8080 ./admin/phpliteadmin.php 
+	php -S localhost:8080 ./admin/phpliteadmin.php
